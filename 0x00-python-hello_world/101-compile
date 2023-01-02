@@ -1,0 +1,4 @@
+#!/bin/bash
+python -m py_compile 
+"$PYFILE" "$PYFILEc"
+exit 0
