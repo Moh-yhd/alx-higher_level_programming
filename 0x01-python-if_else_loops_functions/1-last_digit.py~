@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+import random
+number = random.randint(-1000, 1000)
+for i in number:
+    if i == '\n':
+        print(f"Last digit of {number} is {i}")
+    else:
+        pass
