@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+import hidden_4 
 if __name__ == "__main__":
-    import imp
-    compiled_module = imp.load_compiled('hidden_4', 'hidden_4.pyc')
-    for name in compiled_mudule_dict__:
-        print(name)
+    compiled_module = dir(hidden_4)
+    length = len(compiled_module)
+    for i in range(length):
+        if compiled_module[i][0:2] != '__':
+            print(compiled_module[i])
