@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
-    print("{:d} arguments:".format(len(sys.argv) - 1))
+    if len(sys.argv) > 2:
+        print("{:d} arguments:".format(len(sys.argv)))
+    else:
+        if len(sys.argv) == 1:
+            print("{:d} argument.".format(len(sys.argv) - 1))
+        else:
+            print("{:d} argument:".format(len(sys.argv) - 1))
     for i in range(len(sys.argv)):
         j = i + 1
         if j == len(sys.argv):
