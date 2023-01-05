@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import hidden_4 
+import hidden_4
 if __name__ == "__main__":
     compiled_module = dir(hidden_4)
     length = len(compiled_module)
