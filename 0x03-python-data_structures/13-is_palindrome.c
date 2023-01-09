@@ -5,7 +5,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *temp;
 	int *list_elem;
-	unsigned int i;
+	unsigned int i = 0;
 
 	if (*head == NULL || head == NULL)
 		return (1);
@@ -31,10 +31,14 @@ int is_palindrome(listint_t **head)
 	while (temp->next)
 	{
 		if (list_elem[i] != temp->n)
+		{
+			free(list_elem);
 			return (0);
+		}
 		temp = temp->next;
 		i -= 1;
 	}
+	free(list_elem);
 
 	return (1);
 }
