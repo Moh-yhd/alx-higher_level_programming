@@ -15,3 +15,7 @@ new_dict = update_dictionary(a_dictionary, 'city', "San Francisco")
 print_sorted_dictionary(new_dict)
 print("--")
 print_sorted_dictionary(a_dictionary)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00525b6eed72d42d590ab750451b4f0f36063773
