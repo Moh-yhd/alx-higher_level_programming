@@ -1,7 +1,12 @@
 #!/usr/bin/python3
-a = [1, 2, 3]
-b = [2, 4, 6]
-i = 0
-for j in b:
-    print(j / a[i])
-    i += 1
+
+import dis
+
+def magic_calculation(a, b):
+    result = 0
+    for i in range(1, 3):
+        try:
+            if i > a:
+
+dis.dis(magic_calculation)
+
