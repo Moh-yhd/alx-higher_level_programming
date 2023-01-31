@@ -1,0 +1,33 @@
+The ``3-say_my_name" module
+============================
+
+Using ``say_my_name``
+---------------------
+
+First import ``say_my_name`` from ``3-say_my_name``:
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Now use it:
+	Passing string first and last name
+	>>> say_my_name("Mohammed", "Mustofa")
+	My name is Mohammed Mustofa
+
+	passing string only first name
+	>>> say_my_name("Abebe")
+	My name is Abebe 
+
+	passing int first name
+	>>> say_my_name(98, "Abdu")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	passing list as last name
+	>>> say_my_name("Mohammed", [3, 3, 5])
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+	Passing empty first name
+	>>> say_my_name("", "Mustofa")
+	My name is  Mustofa
