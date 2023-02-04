@@ -25,6 +25,5 @@ def text_indentation(text):
         flag2 = 0
         if text[i] in ('.', ':', '?'):
             print('\n')
-            i = i + 1
             flag2 = 1
         i = i + 1
