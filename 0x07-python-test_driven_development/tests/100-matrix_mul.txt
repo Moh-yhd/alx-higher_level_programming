@@ -50,6 +50,13 @@ Passing multipliable different size matrices
 	...
 	TypeError: m_a must be a list of lists
 
+Passing multipliable different size matrices
+	>>> matrix_mul([[1, 2], [3, 4]], [1, 2])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list of lists
+
+
 passing an empty list
 	>>> matrix_mul([], [[0, 9]])
 	Traceback (most recent call last):
