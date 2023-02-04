@@ -12,7 +12,9 @@ class TestMaxInteger(unittest.TestCase):
         """Test the max_integer when given integer list
         """
         self.assertAlmostEqual(max_integer([1, 4, 6]), 6)
-        self.assertAlmostEqual(max_integer([-4, -6, 0]), 0)
+        self.assertAlmostEqual(max_integer([4, -6, 0]), 4)
+        self.assertAlmostEqual(max_integer([4, 9, 0]), 9)
+        self.assertAlmostEqual(max_integer([1]), 1)
         self.assertAlmostEqual(max_integer([]), None)
         self.assertAlmostEqual(max_integer([7, 4.8, 7.2]), 7.2)
 
