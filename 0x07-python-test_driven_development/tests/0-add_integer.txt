@@ -52,8 +52,32 @@ Now use it:
 	...
 	TypeError: a must be an integer
 
+	Passing an infinite long float
+	>>> add_integer(3, float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+	passing a NAN
+	>>> add_integer(4, float("nan"))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
 	passing string that can be casted to int
 	>>> add_integer(111, "111")
 	Traceback (most recent call last):
 	...
 	TypeError: b must be an integer
+
+	missing one argument
+	>>> add_integer(8)
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 2 required positional arguments:'a' and 'b'
+
+	missing tow arguments
+	>>> add_integer()
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
