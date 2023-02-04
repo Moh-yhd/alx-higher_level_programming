@@ -1,0 +1,66 @@
+The "5-text_indentation" module
+===============================
+
+Using "text_indentation"
+
+First import "text_indentation" from the "5-text_indentation" module:
+	>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+			Now Use it
+			----------
+Passing long string
+>>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?""")
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<BLANKLINE>
+Quonam modo?
+<BLANKLINE>
+Utrum igitur tibi litteram videor an totas paginas commovere?
+<BLANKLINE>
+
+Passing no argument
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Passing two arguments
+>>> text_indentation("Lorem", "ipsum")
+Traceback (most recent call last):
+...
+TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Passing non string argument
+>>> text_indentation(458)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+Passing an empty string
+>>> text_indentation("")
+
+Passing a string with a special charachter and a new line at the end
+>>> text_indentation("lorem ipsum.\n")
+lorem ipsum.
+<BLANKLINE>
+
+Passing a string without a special charachter and a new line at the end
+>>> text_indentation("lorem ipsum\n")
+lorem ipsum
+
+Passing argument with multiple spaces
+>>> text_indentation("   lorem   ipsum")
+lorem   ipsum
+
+Passing argument with multiple spaces special charachters in between
+>>> text_indentation("   lorem?   ipsum")
+lorem?
+<BLANKLINE>
+ipsum
+
+Passing argument with new line in the middle
+>>> text_indentation("   lorem\n   ipsum")
+lorem
+<BLANKLINE>
+ipsum
+
+
