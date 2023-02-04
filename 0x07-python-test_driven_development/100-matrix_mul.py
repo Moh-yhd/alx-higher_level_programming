@@ -34,11 +34,11 @@ def matrix_mul(m_a, m_b):
     width = len(m_a[0])
     for row in m_a:
         if len(row) != width:
-            raise TypeError("each row of m_a must be of the same siz")
+            raise TypeError("each row of m_a must be of the same size")
     width = len(m_b[0])
     for row in m_b:
         if len(row) != width:
-            raise TypeError("each row of m_b must be of the same siz")
+            raise TypeError("each row of m_b must be of the same size")
     rowM_a = len(m_a[0])
     colM_b = len(m_b)
     if rowM_a != colM_b:

@@ -14,7 +14,7 @@ Passing two (2X2) matrices:
 	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
 	[[7, 10], [15, 22]]
 
-Passing two (2X2) matrices:
+Passing two (2X2) matrices with negative int:
 	>>> matrix_mul([[-1, 2], [3, -4]], [[1, -2], [-3, 4]])
 	[[-7, 10], [15, -22]]
 
@@ -27,8 +27,50 @@ Passing multipliable different size matrices
 	>>> matrix_mul([[1, 2]], [[1, 2], [3, 4]])
 	[[7, 10]]
 
+passing (3X3) matrices
+	>>> matrix_mul([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+	[[30, 36, 42], [66, 81, 96], [102, 126, 150]]
+
+passing non list first argument
+	>>> matrix_mul("python", [[1,2], [12, 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list
+
+passing non list second argument
+	>>> matrix_mul([[1,2], [12, 4]], "python")
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list
+
+
 Passing multipliable different size matrices
 	>>> matrix_mul([1, 2], [[1, 2], [3, 4]])
 	Traceback (most recent call last):
 	...
 	TypeError: m_a must be a list of lists
+
+passing an empty list
+	>>> matrix_mul([], [[0, 9]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+passing non int or float elements of list
+	>>> matrix_mul([[8, 9]], [['c', 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b should contain only integers or floats
+
+passing non rectangular matrix
+	>>> matrix_mul([[4, 5, 9], [4, 5]], [[1, 2], [3, 4], [9, 10]])
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_a must be of the same size
+
+passing non non mulipliable matrices
+	>>> matrix_mul([[4, 5, 9], [7, 4, 5]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a and m_b can't be multiplied
+
