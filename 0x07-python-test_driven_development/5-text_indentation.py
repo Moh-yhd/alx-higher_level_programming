@@ -23,7 +23,7 @@ def text_indentation(text):
         print("{}".format(text[i]), end="")
         flag = 1
         flag2 = 0
-        if text[i] in ('.', ':', '?'):
+        if text[i] in ('.', ':', '?', '\n'):
             print('\n')
             flag2 = 1
         i = i + 1
