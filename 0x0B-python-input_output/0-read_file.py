@@ -4,7 +4,7 @@
 
 def read_file(filename=""):
     """Opens a file, reads it and prints its content
-    
+
     Args:
         filename: filename to be read
 
