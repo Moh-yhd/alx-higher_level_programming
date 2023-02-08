@@ -15,12 +15,12 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
 
+
 class Rectangle(BaseGeometry):
     """ Creates a class rectangle"""
     def __init__(self, width, height):
         """ Initializes self """
         self.__width = width
-        BaseGeometry.integer_validator(self, "width", width) 
+        BaseGeometry.integer_validator(self, "width", width)
         self.__height = height
-        BaseGeometry.integer_validator(self, "height", height) 
-
+        BaseGeometry.integer_validator(self, "height", height)
