@@ -42,5 +42,8 @@ class Square(Rectangle):
         super().__init__(size, size)
 
     def area(self):
-        """ Returns the area of the square """
+        """ Returns the area of a square """
         return super().area()
+
+    def __str__(self):
+        return "[Square] {}/{}".format(self.__size, self.__size)
