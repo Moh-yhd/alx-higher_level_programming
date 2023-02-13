@@ -36,10 +36,11 @@ class Base:
                 json_dictionaries.append(obj.to_dictionary())
         with open(filename, 'w', encoding='utf-8') as f:
             return f.write(Base.to_json_string(json_dictionaries))
+
     @staticmethod
     def from_json_string(json_string):
         """Returns the list of the JSON sring representation"""
-        if json_string == None or json_string == "[]":
+        if json_string is None or json_string == "[]":
             return []
         else:
             return json.loads(json_string)
@@ -69,28 +70,33 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """ Saves the CSV serialization of an object to a file"""
+        """Write the CSV serialization of a list of objects on a file"""
         filename = cls.__name__ + ".csv"
-        with open(filename, 'w', newline='') as csvfile:
-            if filename == None or filename == []:
-                return []
+        with open(filename, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
             else:
                 if cls.__name__ == "Rectangle":
-                    fieldnames = ['id', 'width', 'height', 'x', 'y']
+                    fieldnames = ["id", "width", "height", "x", "y"]
                 else:
-                    fieldnames = ['d' 'size', 'x', 'y']
+                    fieldnames = ["id", "size", "x", "y"]
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 for obj in list_objs:
                     writer.writerow(obj.to_dictionary())
+
     @classmethod
     def load_from_file_csv(cls):
+        """Return a list of classes instantiated from a CSV file"""
         filename = cls.__name__ + ".csv"
-        instance_list = []
-        with open(filename, 'r') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                dictionary = {}
-                for key in row:
-                    dictionary[key] = int(row[key])
-                instance_list.append(cls.create(**dictionary))
-        return instance_list
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
