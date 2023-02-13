@@ -96,8 +96,11 @@ class Rectangle(Base):
                 setattr(self, key, value)
         elif len(args) > 0:
             attrib = ["id", "width", "height", "x", "y"]
-            for i, arg in enumerate(args):
-                setattr(self, attrib[i], arg)
+            try:
+                for i, arg in enumerate(args):
+                    setattr(self, attrib[i], arg)
+            except IndexError:
+                pass
 
     def to_dictionary(self):
         """Returns the dictionary represetation of a rectangle"""

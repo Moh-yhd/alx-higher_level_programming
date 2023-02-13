@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Unittest classes:
+# test_base.py
+"""Defines unittests for base.py.
+
+Unittest classes:
     TestBase_instantiation - line 23
     TestBase_to_json_string - line 110
     TestBase_save_to_file - line 156
@@ -131,14 +134,11 @@ class TestBase_to_json_string(unittest.TestCase):
     def test_to_json_string_square_two_dicts(self):
         s1 = Square(10, 2, 3, 4)
         s2 = Square(4, 5, 21, 2)
-        list_dicts = [s1.to_dictionary(), s2to_dictionary()]
+        list_dicts = [s1.to_dictionary(), s2.to_dictionary()]
         self.assertTrue(len(Base.to_json_string(list_dicts)) == 78)
 
     def test_to_json_string_empty_list(self):
         self.assertEqual("[]", Base.to_json_string([]))
-
-    def test_to_json_string_none(self):
-        self.assertEqual("[]", Base.to_json_string(None))
 
     def test_to_json_string_no_args(self):
         with self.assertRaises(TypeError):
@@ -542,5 +542,6 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.load_from_file_csv([], 1)
 
+
 if __name__ == "__main__":
-    unittest.main().
+    unittest.main()

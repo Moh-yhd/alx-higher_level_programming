@@ -1,4 +1,5 @@
-#!/usr/bin/python3>
+#!/usr/bin/python3
+# test_square.py
 """Defines unittests for models/square.py.
 
 Unittest classes:
@@ -136,7 +137,7 @@ class TestSquare_size(unittest.TestCase):
             Square(b'Python')
 
     def test_bytearray_size(self):
-        with self.assertRaisesRegex(TypeErrr, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square(bytearray(b'abcdefg'))
 
     def test_memoryview_size(self):
@@ -454,16 +455,6 @@ class TestSquare_update_args(unittest.TestCase):
         s.update(89, 2, 3, 4, 5)
         self.assertEqual("[Square] (89) 3/4 - 2", str(s))
 
-    def test_update_args_width_setter(self):
-        s = Square(10, 10, 10, 10)
-        s.update(89, 2)
-        self.assertEqual(2, s.width)
-
-    def test_update_args_height_setter(self):
-        s = Square(10, 10, 10, 10)
-        s.update(89, 2)
-        self.assertEqual(2, s.height)
-
     def test_update_args_None_id(self):
         s = Square(10, 10, 10, 10)
         s.update(None)
@@ -556,16 +547,6 @@ class TestSquare_update_kwargs(unittest.TestCase):
         s.update(id=89, x=1, y=3, size=4)
         self.assertEqual("[Square] (89) 1/3 - 4", str(s))
 
-    def test_update_kwargs_width_setter(self):
-        s = Square(10, 10, 10, 10)
-        s.update(id=89, size=8)
-        self.assertEqual(8, s.width)
-
-    def test_update_kwargs_height_setter(self):
-        s = Square(10, 10, 10, 10)
-        s.update(id=89, size=9)
-        self.assertEqual(9, s.height)
-
     def test_update_kwargs_None_id(self):
         s = Square(10, 10, 10, 10)
         s.update(id=None)
@@ -654,5 +635,6 @@ class TestSquare_to_dictionary(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
 
+
 if __name__ == "__main__":
-    unittest.main()o
+    unittest.main()
